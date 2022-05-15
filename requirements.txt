@@ -1,0 +1,8 @@
+asgiref==3.5.1
+Django==3.2.13
+django-filter==21.1     
+django-htmx==1.11.0     
+django-tables2==2.4.1   
+pytz==2022.1
+sqlparse==0.4.2
+typing_extensions==4.2.0
