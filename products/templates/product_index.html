@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% load static %}
+
+
+<body>
+
+{% block content %}
+
+    <div class="product_index__main_container">
+
+        {% for product in products %}
+
+            <div>
+                <p>{{ product.id }}</p>
+                <p>{{ product.product_name }} </p>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
+
+</body>
+</html>

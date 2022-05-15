@@ -1,0 +1,83 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.8/css/uikit-core.min.css" integrity="sha512-bvDaZBEDtHDwGZbo0lJ/mLVfK0yZxySg0v7N3cvhBSxbl12HIYtjej7Q2fy1k4uMuC1UeGXShAHImgAxKaimsw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <title>Django HTMX modal form</title>
+</head>
+
+
+<body class="main_container">
+<nav class="header_container">
+    <h2 class="navbar-title">PRODUCT MONITORING</h2>
+    <div>
+        <ul class="navbar-nav">
+            {% if user.is_superuser %}
+                <li class="navbar-item">
+                    <a class="navbar-link " href="../../admin/">
+                        <ion-icon name="logo-tux"></ion-icon>
+                    </a>
+                </li>
+            {% endif %}
+            <li class="navbar-item">
+                <a class="navbar-link" href="{% url 'logout' %}">
+                    <ion-icon name="ios-exit"></ion-icon>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="sidebar_container">
+    <nav class="nav-sidebar">
+        <div class="sidebar_container__company_name_container">
+        </div>
+        <div class="nav-sidebar-header">
+            <h3 class="sidebar-title">Menu</h3>
+        </div>
+
+        <ul class="nav-sidebar-menu-list">
+
+            <li>
+                <a class="nav-sidebar-link" href="{% url 'product_index' %}">All Product</a>
+            </li>
+            <li>
+                <a class="nav-sidebar-link" href="{% url 'product_form' %}">New Product</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="content_container">
+
+
+    {% block content %}
+    {% endblock %}
+
+
+</div>
+
+
+<footer class="footer_container">
+    <div class="footer_container--text"> &copy; 2022 My Company</div>
+    <div class="footer_container--text"> For dev.to</div>
+</footer>
+
+<script src="{% static 'js/htmx.min.js' %}"></script>
+<script src="{% static 'js/hyperscript.min.js' %}"></script>
+<script src="{% static 'js/modalscript.js' %}"></script>
+
+</body>
+
+</html>

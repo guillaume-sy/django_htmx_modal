@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3-party applications
+    'django_filters',
+    'django_tables2',
+    'crispy_forms',
+    # my apps
+    'accounts',
+    'products'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 ROOT_URLCONF = 'django_htmx_modal.urls'
@@ -65,6 +73,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'custom_templatetag': 'products.templatetags.newquery_tag',
+            }
         },
     },
 ]

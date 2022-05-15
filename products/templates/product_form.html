@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% load static %}
+
+<body>
+{% block content %}
+    <div class="product-form">
+        <form method="POST" enctype="multipart/form-data" class="post-form">
+            {% csrf_token %}
+            <div class="product-form__container">
+
+                <div class="product-form__element">
+                    <label class="product-form__label"> Name </label>
+                    <input id="product-name" name="product-name">
+                </div>
+
+                <div class="product-form__element">
+                    <div class="product-form__element__top">
+                        <label class="product-form__label"> Factory</label>
+                        <div class="product-form__button_container">
+                            <button hx-get="{% url 'factory_modal' %}"
+                                    hx-target="#show-factory-modal-here"
+                                    class="product-form_addButton"
+                                    _="on htmx:afterOnLoad wait 10ms then add .uk-open to #factory-modal">
+                                <ion-icon class="product-form__icon" name="search"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-form__visible">
+                        <p class="product-form__name_display" id="form__visible__factory_name_display"> &nbsp;&nbsp;------</p>
+                    </div>
+                    <div class="product-form__hidden">
+                        <input class="form-control" id="hidden_factory_value" type="hidden" name="factory" value="0">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div id="show-factory-modal-here"></div>
+
+            <br>
+            <br>
+            <button type="submit" class="product-form__button" id="entry-button"> Submit</button>
+            <br>
+            <br>
+        </form>
+    </div>
+
+{% endblock %}
+</body>
+</html>

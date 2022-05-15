@@ -1,0 +1,28 @@
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<div id="factory-modal" class="uk-modal" style="display:block;">
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Factory selection</h2>
+        <div class="product_list__main_container">
+            <form hx-get="{% url 'factory_modal' %}"
+                  hx-target="div.table-container"
+                  hx-swap="outerHTML"
+                  hx-indicator=".progress"
+                  class="form-inline">
+                {% crispy filter.form %}
+            </form>
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+            {% render_table table %}
+        </div>
+        <form _="on submit take .uk-open from #factory-modal">
+            <button type="button" class="uk-button uk-button-default"
+                    _="on click take .uk-open from #factory-modal wait 200ms then remove #factory-modal">Close
+            </button>
+        </form>
+    </div>
+</div>
