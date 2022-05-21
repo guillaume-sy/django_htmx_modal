@@ -6,7 +6,7 @@
 ## General info
 This project is a dynamic modal for a Django form using htmx and django-tables2
 The building process can be found at the following 
-XXX
+https://dev.to/guillaumesy/dynamic-selection-modal-in-django-with-htmx-and-django-tables2-5981
 
 Table style was inspired by the article of Joash Xu 
 https://dev.to/joashxu/responsive-table-with-django-and-htmx-1fob
